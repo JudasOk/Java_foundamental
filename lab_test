@@ -1,0 +1,43 @@
+# Java_foundamental
+package day1test;
+
+import java.util.Scanner;
+
+public class Numerologist {
+
+	public static void main(String[] args) {
+		Numerologist n = new Numerologist();
+		System.out.println("Enter an integer");
+		Scanner input = new Scanner(System.in);
+		int number = input.nextInt();
+		System.out.println("Your lucky number is " + n.getLuckyNumber(number));
+		input.close();
+	}
+
+
+	int getLuckyNumber(int num) {
+		int index=0;
+		Boolean flag=true;
+		int[] record = new int[100];
+		for(int i=0;i<100;i++) {
+			record[i]=-1;
+		}		
+		if(num<0) num=-num;
+		
+while(flag) {		
+		while(num/10 != 0) {
+			record[index]=num%10;
+			num=(int)num/10;
+			index++;
+		}
+		record[index]=num;
+		num=0;
+		for(int j=0;j<index+1;j++) {
+			num+=record[j];
+		}
+		if(num>10) index=0;
+		else flag=false;		
+}				
+		return num;
+	}
+}
