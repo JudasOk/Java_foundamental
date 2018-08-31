@@ -43,3 +43,19 @@ while(flag) {
 		return num;
 	}
 }
+
+/*		
+while(flag) {		
+		while((num*10)/10 != 0) {//if the condtion be like this, we can combine the plus of units digit with other other digits
+			record[index]=num%10;
+			num=(int)num/10;
+			index++;
+		}
+		
+		num=0;
+		for(int j=0;j<index;j++) {
+			num+=record[j];
+		}
+		if(num>10) index=0;
+		else flag=false;		
+}*/
